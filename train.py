@@ -13,7 +13,6 @@ X_test, X_val = train_test_split(X_temp, test_size=0.5, stratify=label_test_val,
 gen = utils.DataGenerator(image_size=128, batch_size=32)
 train_generator = gen.generating(X_train, "data/train/")
 val_generator = gen.generating(X_val, "data/train/")
-test_generator = gen.generating(X_test, "data/train/")
 
 model = cnn.CNNModel(image_size=128, image_channel=3)
 model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
@@ -24,4 +23,5 @@ history = model.fit(train_generator,
                     epochs = 30
                    )
 
-model.save("model.h5")
+model.save("w.keras")
+model.save("w.h5")
